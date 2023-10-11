@@ -1,0 +1,57 @@
+<div class="lt-container category-page">
+  <div class="lt-container-inner">
+    <div class="lt-row lt-align-items-center lt-mb-5 lt-d-print-none">
+      <div class="lt-col-md-8 lt-mb-4">
+        {{breadcrumbs}}
+      </div>
+    </div>
+
+    <div class="lt-category-tree-item"  id="main-content">
+      <div class="lt-header">
+        <h1 class="lt-category-tree-item__title lt-mb-0">
+          {{category.name}}
+        </h1>
+        {{#if category.description}}
+          <div class="lt-header__desc">{{category.description}}</div>
+        {{/if}}
+      </div>
+      <div class="lt-category-tree-item__sections lt-row lt-row-cols-md-2">
+        {{#each sections}}
+          <section class="section lt-mb-8">
+            <h2 class="lt-mb-3 lt-fs-4">
+              <a class="lt-section-link" href="{{url}}">{{name}}</a>
+            </h2>
+            {{#if articles}}
+              <ul class="lt-article-list">
+                {{#each articles}}
+                  <li
+                      class="lt-article-list-item {{#if promoted}}lt-article-list-item--promoted{{/if}}">
+                    <a class="lt-article-list-item__link"
+                        href="{{url}}">{{title}}</a>
+                  </li>
+                {{/each}}
+                {{#if more_articles}}
+                  <li class="lt-article-list-item">
+                    <a href="{{url}}" class="see-all-articles">
+                      {{t 'show_all_articles' count=article_count}} <svg class="lt-d-inline-flex lt-ms-2" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 12l-6 6M4 12h16H4zm16 0l-6-6 6 6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          </svg>
+                    </a>
+                  </li>
+                {{/if}}
+              </ul>
+            {{else}}
+              <p>
+                <i><a href="{{url}}">{{t 'empty'}}</a></i>
+              </p>
+            {{/if}}
+          </section>
+        {{else}}
+          <p>
+            {{t 'empty'}}
+          </p>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>

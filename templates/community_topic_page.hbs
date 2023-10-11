@@ -1,0 +1,144 @@
+<div class="lt-container lt-pb-9">
+  <div class="lt-container-inner">
+    <div class="lt-row lt-align-items-center lt-mb-5 lt-d-print-none">
+      <div class="lt-col-md-8 lt-mb-4">
+        {{breadcrumbs}}
+      </div>
+      <div class="lt-col-md-4 lt-mb-4">
+        <div class="lt-search-box lt-search-box--small ">
+          {{search instant=true submit=false placeholder=settings.search_placeholder}}
+        </div>
+      </div>
+    </div>
+    <div class="lt-header lt-d-flex lt-flex-column lt-flex-lg-row  lt-justify-content-lg-between lt-align-items-start" id="main-content">
+      <div class="lt-me-4 lt-mb-4 lt-mb-lg-0">
+        <h1 class="lt-topic-title lt-mb-0 lt-fs-3 lt-fs-md-1">
+          {{#if topic.internal}}
+            <span class="fa fa-lock" title="{{t 'internal'}}"></span>
+          {{/if}}
+          {{topic.name}}
+        </h1>
+        {{#if topic.description}}
+          <div class="lt-header__desc">{{topic.description}}</div>
+        {{/if}}
+      </div>
+    
+      {{#if settings.show_follow_community_topic}}
+        <div class="lt-community-follow lt-d-flex lt-justify-content-between lt-align-items-center">
+          <span
+                class="lt-meta">{{t 'follower_count' count=topic.follower_count}}</span>
+          {{subscribe}}
+        </div>
+      {{/if}}
+    </div>
+
+    <div class="lt-row">
+      <div class="lt-col-md-8">
+        <div class="lt-topic-controls lt-mb-4">
+          <div class="lt-topic-filters lt-topic-controls__item">
+            <span class="lt-dropdown lt-mb-2 lt-me-2">
+              <button 
+                class="lt-dropdown-toggle lt-btn lt-btn--default" 
+                aria-haspopup="true">
+                {{current_filter.label}}
+              </button>
+              <span class="lt-dropdown-menu" role="menu">
+                {{#each filters}}
+                  <a href="{{url}}" aria-selected="{{selected}}" role="menuitem">
+                    {{name}}
+                  </a>
+                {{/each}}
+              </span>
+            </span>
+        
+            <span class="lt-dropdown lt-mb-2">
+              <button 
+                class="lt-dropdown-toggle lt-btn lt-btn--default" 
+                aria-haspopup="true">
+                {{current_sorter.label}}
+              </button>
+              <span class="lt-dropdown-menu" role="menu">
+                {{#each sorters}}
+                  <a href="{{url}}" aria-selected="{{selected}}" role="menuitem">
+                    {{name}}
+                  </a>
+                {{/each}}
+              </span>
+            </span>
+          </div>
+        
+        </div>
+        {{#if posts}}
+          <ul class="lt-list-unstyled lt-mb-4">
+            {{#each posts}}
+              <li class="lt-post-list-item lt-d-flex lt-flex-column lt-flex-md-row {{#if has_official_comment}} question-official-answer {{/if}} {{#if featured}} lt-post-list-item--featured {{/if}} {{#if pinned}} lt-post-list-item--pinned {{/if}}">
+
+                <div class="lt-d-none lt-d-md-flex lt-flex-shrink-0 lt-me-3">
+                  <img class="lt-user-avatar lt-user-avatar--default" src="{{author.avatar_url}}" />
+                </div>
+  
+                <div class="lt-me-auto lt-d-flex lt-flex-column lt-flex-sm-row lt-justify-content-between lt-w-100 lt-align-items-start lt-align-items-sm-center">
+                  <div>
+                    
+                    <h3 class="h5 lt-post-list-item__title lt-mb-1">
+                      {{#if pinned}}<span class="fa fa-star lt-post-list-item__icon"></span>{{/if}}
+                      <a href="{{url}}">{{title}}</a>
+                    </h3>
+                    <div class="lt-meta lt-mb-2 lt-mb-sm-0">
+                      <span class="lt-meta__item">
+                        {{#if author.url}}
+                          <a class="lt-meta__link" href="{{author.url}}" target="_zendesk_lotus">
+                            {{author.name}}
+                          </a>
+                        {{else}}
+                          {{author.name}}
+                        {{/if}}
+                      </span>
+                      <span class="lt-meta__item">
+                        {{date created_at timeago=true}}
+                      </span>
+                    </div>
+                  </div>
+                  {{! Show the post status, if any }}
+                  {{#is status 'none'}}
+                  {{else}}
+                    <span class="lt-post-status lt-post-status--{{status_dasherized}} lt-mb-2 lt-mb-sm-0 lt-ms-sm-4">
+                      {{status_name}}
+                    </span>
+                  {{/is}}
+                </div>
+
+                <div class="lt-d-flex lt-align-items-center lt-flex-shrink-0 lt-post-list-item__side lt-ms-md-4">
+                  <div>
+                    <span class="sr-only">{{t 'comments_count' count=comment_count}}</span>
+                    <span aria-hidden="true">
+                      <span class="far fa-comment" aria-hidden="true"></span>
+                      {{comment_count}}
+                    </span>
+                  </div>
+                  <div class="lt-ms-4">
+                    <span class="sr-only">{{t 'votes_sum' count=vote_sum}}</span>
+                    <span aria-hidden="true">
+                      <span class="fas fa-thumbs-up"></span>
+                      {{vote_sum}}
+                    </span>
+                  </div> 
+                </div>
+              </li>
+            {{/each}}
+          </ul>
+
+          {{pagination}}
+        {{else}}
+          <p>{{t 'no_content'}}</p>
+        {{/if}}
+      </div>
+      <div class="lt-col-md-4 lt-d-print-none">
+        <div class="lt-post-callout lt-p-5">
+          <h3 class="h5">{{t 'suggest_new_post'}}</h3>
+          {{link 'new_post' role='button' class='lt-btn lt-btn--primary'}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

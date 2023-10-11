@@ -1,0 +1,66 @@
+<div class="lt-container lt-pb-9">
+  <div class="lt-container-inner">
+    <div class="lt-row lt-align-items-center lt-mb-5 lt-d-print-none">
+      <div class="lt-col-md-8 lt-mb-4">
+        {{breadcrumbs}}
+      </div>
+      <div class="lt-col-md-4 lt-mb-4">
+        <div class="lt-search-box lt-search-box--small ">
+          {{search instant=true submit=false placeholder=settings.search_placeholder}}
+        </div>
+      </div>
+    </div>
+    <nav class="lt-community-nav lt-mb-4">
+      <ul class="lt-list-unstyled lt-d-md-flex lt-align-items-center lt-mt-0 lt-mb-1">
+        <li class="lt-community-nav-item is-active">{{t 'topics'}}</li>
+        <li class="lt-community-nav-item">{{link 'posts'}}</li>
+        <li class="lt-community-nav-item lt-ms-md-auto">{{link 'new_post' role='button' class='lt-btn lt-btn--primary'}}</li>
+      </ul>
+    </nav>
+
+    {{#if topics}}
+      <ul class="lt-block-list lt-list-unstyled lt-row lt-row-cols-md-2 lt-gy-5 lt-mb-9" id="main-content">
+        {{#each topics}}
+          <li class="lt-block-list-item lt-d-flex">
+            <a class="lt-block-list-item__link lt-d-flex lt-align-items-start lt-px-5 lt-py-6 " href="{{url}}">
+              <div class="lt-block-list-item__icon lt-d-inline-flex lt-me-4 lt-flex-shrink-0">
+                <img src="{{asset 'star.svg'}}" />
+              </div>
+
+              <div class="lt-block-list-item__content">
+                <div class="h3 lt-block-list-item__title lt-mb-2">{{name}}</div>
+                {{#if description}}
+                  <div class="lt-block-list-item__desc">
+                    {{description}}
+                  </div>
+                {{/if}}
+                <div class="lt-pt-4">{{t 'post_count' count=post_count}}, {{t 'follower_count' count=follower_count}}</div>
+              </div>
+            </a>
+          </li>
+        {{/each}}
+      </ul>
+
+      {{pagination}}
+    {{else}}
+      <p>{{t 'no_content'}}</p>
+    {{/if}}
+
+    {{#if featured_posts}}
+      <section class="lt-promoted-articles">
+        <h2>{{t 'featured_posts'}}</h2>
+        <ul class="lt-list-unstyled lt-row lt-row-cols-sm-3 lt-gy-5">
+          {{#each featured_posts}}
+            <li class="lt-promoted-articles-item">
+              <a class="lt-promoted-articles-item__title lt-d-block lt-mb-1"
+                  href="{{url}}">
+                {{title}}
+              </a>
+              <p class="lt-meta lt-mb-0">{{excerpt details characters=50}}</p>
+            </li>
+          {{/each}}
+        </ul>
+      </section>
+    {{/if}}
+  </div>
+</div>

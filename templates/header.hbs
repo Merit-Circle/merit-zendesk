@@ -1,0 +1,134 @@
+<a class="lt-skip-navigation" tabindex="1" href="#main-content">{{t 'skip_navigation' }}</a>
+<div class="lt-layout">
+  <header class="lt-topbar lt-container lt-py-4 lt-mb-3 lt-d-print-none" data-topbar>
+    <div class="lt-container-inner lt-d-flex lt-align-items-center lt-justify-content-between lt-w-100">
+      <div class="lt-d-flex lt-align-items-center">
+        {{#link 'help_center'}}
+          <img class="lt-topbar__logo" src="{{settings.logo}}" alt="{{t 'logo'}}">
+        {{/link}} 
+        {{#if settings.show_help_center_name}}
+          <div class="lt-d-none lt-d-sm-inline-flex lt-ms-3">
+            {{#if settings.toggle_translations}}
+              {{dc settings.help_center_name}}
+            {{else}}
+              {{settings.help_center_name}}
+            {{/if}}
+          </div>
+        {{/if}}
+
+      </div>
+      <button 
+        class="lt-menu-toggle"
+        aria-label="{{t 'toggle_navigation'}}"
+        aria-controls="user-nav"
+        x-data="{}"
+        x-bind:aria-expanded="$store.mobileMenu.isOpen" 
+        x-bind:class="{'is-active': $store.mobileMenu.isOpen}"
+        x-on:click="$store.mobileMenu.isOpen = !$store.mobileMenu.isOpen"
+        x-on:keydown.escape="$store.mobileMenu.isOpen = false"
+        >
+        <span></span>
+      </button>
+
+      <nav 
+        class="lt-topbar__controls lt-d-flex lt-flex-column lt-align-items-start lt-flex-lg-row lt-align-items-lg-center"
+        id="user-nav"
+        x-data="{}"
+        x-bind:class="{'is-active': $store.mobileMenu.isOpen}"
+        x-on:keydown.escape="$store.mobileMenu.isOpen = false">
+        {{#if settings.topbar_link_1_toggle}}
+          <a class="lt-topbar__link"
+              href="{{#if settings.toggle_translations}}{{dc settings.topbar_link_1_url}}{{else}}{{settings.topbar_link_1_url}}{{/if}}">
+            {{#if settings.toggle_translations}}
+              {{dc settings.topbar_link_1_title}}
+            {{else}}
+              {{settings.topbar_link_1_title}}
+            {{/if}}
+          </a>
+        {{/if}}
+        
+        {{#if settings.topbar_link_2_toggle}}
+          <a class="lt-topbar__link"
+              href="{{#if settings.toggle_translations}}{{dc settings.topbar_link_2_url}}{{else}}{{settings.topbar_link_2_url}}{{/if}}">
+            {{#if settings.toggle_translations}}
+              {{dc settings.topbar_link_2_title}}
+            {{else}}
+              {{settings.topbar_link_2_title}}
+            {{/if}}
+          </a>
+        {{/if}}
+        
+        {{#if settings.topbar_link_3_toggle}}
+          <a class="lt-topbar__link"
+              href="{{#if settings.toggle_translations}}{{dc settings.topbar_link_3_url}}{{else}}{{settings.topbar_link_3_url}}{{/if}}">
+            {{#if settings.toggle_translations}}
+              {{dc settings.topbar_link_3_title}}
+            {{else}}
+              {{settings.topbar_link_3_title}}
+            {{/if}}
+          </a>
+        {{/if}}
+        {{#if settings.show_category_menu}}
+        <div class="lt-dropdown lt-dropdown--topbar"
+            x-data="Theme.categoryMenu()" 
+            x-init="fetchCategories()"
+            x-cloak
+          >
+          <button class="lt-dropdown-toggle lt-topbar__link" aria-haspopup="true" x-show="categories.length > 1">
+            {{t 'categories'}}
+          </button>
+          <span class="lt-dropdown-menu lt-dropdown-menu--topbar" role="menu">
+            <template x-for="(category, index) in categories" :key="index">
+              <a :href="category.html_url" x-text="category.name" rel="nofollow" role="menuitem">
+              </a>
+            </template>
+          </span>
+        </div>
+        {{/if}}
+
+        {{#if alternative_locales}}
+          <div class="lt-dropdown lt-dropdown--topbar lt-dropdown--language-selector language-selector">
+            <button class="lt-dropdown-toggle lt-topbar__link" aria-haspopup="true">
+              {{current_locale.name}}
+            </button>
+            <span class="lt-dropdown-menu lt-dropdown-menu--topbar" role="menu">
+              {{#each alternative_locales}}
+                <a href="{{url}}" dir="{{direction}}" rel="nofollow" role="menuitem">
+                  {{name}}
+                </a>
+              {{/each}}
+            </span>
+          </div>
+        {{/if}}
+        {{#if settings.show_submit_a_request}}
+          {{link 'new_request' class='lt-btn lt-btn--topbar lt-btn--default'}}
+        {{/if}}
+         {{#if signed_in}}
+          <div id="user" class="lt-dropdown lt-user-info" >
+            <button class="lt-dropdown-toggle lt-topbar__link" aria-haspopup="true">
+              <span class="lt-avatar">
+                {{user_avatar class="lt-user-avatar lt-user-avatar--topbar"}}
+                <span class="lt-avatar__badge js-open-tickets-badge" aria-hidden="true"></span>
+              </span>
+              <span class="sr-only">{{user_name}}</span>
+              <span class="lt-ms-2 lt-d-lg-none" aria-hidden="true">{{user_name class="user-name "}}</span>
+            </button>
+            <div class="lt-dropdown-menu lt-user-info__menu" role="menu">
+              {{link "my_activities" role="menuitem"}}
+              {{my_profile role="menuitem"}}
+              {{change_password role="menuitem"}}
+              {{link "sign_out" role="menuitem"}}
+            </div>
+          </div>
+        {{else}}
+          {{#if settings.show_sign_in}}
+            <a href="{{#if settings.toggle_translations}}{{dc settings.sign_in_url}}{{else}}{{settings.sign_in_url}}{{/if}}" class="lt-signin-link">
+              <span class="lt-signin-link__title">{{t 'sign_in'}}</span>
+              <span class="lt-signin-link__subtitle">Connect wallet</span>
+            </a>
+          {{/if}}
+        {{/if}}
+      </nav>
+    </div>
+  </header>
+  <div class="lt-layout__main">

@@ -1,0 +1,70 @@
+<div class="lt-container section-page lt-pb-8">
+  <div class="lt-container-inner">
+    <div class="lt-row lt-align-items-center lt-mb-5 lt-d-print-none">
+      <div class="lt-col-md-8 lt-mb-4">
+        {{breadcrumbs}}
+      </div>
+    </div>
+
+    <div class="lt-header lt-d-md-flex lt-justify-content-between" id="main-content">
+      <div class="lt-me-4">
+        <h1 class="lt-mb-0 lt-fs-3 lt-fs-md-1 lt-mb-0">
+          {{section.name}}
+        </h1>
+        {{#if section.description}}
+          <div class="lt-header__desc">{{section.description}}</div>
+        {{/if}}
+      </div>
+
+      {{#if settings.show_follow_section}}
+        <div class="lt-section-subscribe lt-pt-3 lt-pt-md-0">
+          {{subscribe}}
+        </div>
+      {{/if}}
+    </div>
+
+    {{#if section.sections}}
+      <div class="lt-mb-6">
+        <ul class="lt-block-list lt-list-unstyled lt-row lt-gy-5 lt-row-cols-md-2 lt-mb-4" id="section-list">
+          {{#each section.sections}}
+                <li class="lt-block-list-item lt-d-flex">
+                  <a class="lt-block-list-item__link lt-d-flex lt-align-items-start lt-px-5 lt-py-6 " href="{{url}}">
+                    <div class="lt-block-list-item__icon lt-d-inline-flex lt-me-4 lt-flex-shrink-0">
+                      <img src="{{asset 'star.svg'}}" />
+                    </div>
+
+                    <div class="lt-block-list-item__content">
+                      <div class="h3 lt-block-list-item__title lt-mb-2">{{name}}</div>
+                      {{#if description}}
+                        <div class="lt-block-list-item__desc">
+                          {{description}}
+                        </div>
+                      {{/if}}
+                      <div class="lt-pt-3 lt-block-list-item__see-all">
+                        {{t 'show_all_articles'}}
+                        <svg class="lt-d-inline-flex lt-ms-2" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M20 12l-6 6M4 12h16H4zm16 0l-6-6 6 6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+          {{/each}}
+        </ul>
+        {{pagination "section.sections"}}
+      </div>
+    {{/if}}
+
+    {{#if section.articles}}
+      <ul class="lt-article-list lt-mb-4">
+        {{#each section.articles}}
+          <li class="lt-article-list-item {{#if promoted}}lt-article-list-item--promoted{{/if}}">
+            <a class="lt-article-list-item__link" href="{{url}}">{{title}}</a>
+          </li>
+        {{/each}}
+      </ul>
+    {{/if}}
+
+    {{pagination "section.articles"}}
+  </div>
+</div>

@@ -1,0 +1,1657 @@
+{
+  "name": "Conway - v4",
+  "author": "Lotus Themes",
+  "version": "6.1.8",
+  "api_version": 2,
+  "default_locale": "en-us",
+  "settings": [
+    {
+      "label": "Translations",
+      "variables": [
+        {
+          "identifier": "toggle_translations",
+          "type": "checkbox",
+          "description": "Enable this option to use dynamic content placeholders in the settings",
+          "label": "Use dynamic content translations",
+          "value": false
+        }
+      ]
+    },
+    {
+      "label": "Colors",
+      "variables": [
+        {
+          "identifier": "body_bg",
+          "type": "color",
+          "description": "Background color of your Help Center",
+          "label": "Background color",
+          "value": "#fff"
+        },
+        {
+          "identifier": "brand_primary",
+          "type": "color",
+          "description": "Brand color for major navigational elements",
+          "label": "Brand primary color",
+          "value": "#131313"
+        },
+        {
+          "identifier": "text_color",
+          "type": "color",
+          "description": "Text color for body and heading elements",
+          "label": "Text color",
+          "value": "#131313"
+        },
+        {
+          "identifier": "link_color",
+          "type": "color",
+          "description": "Text color for link elements",
+          "label": "Link color",
+          "value": "#131313"
+        },
+        {
+          "identifier": "button_color",
+          "type": "color",
+          "description": "Color for button elements",
+          "label": "Button color",
+          "value": "#131313"
+        },
+        {
+          "identifier": "border_color",
+          "type": "color",
+          "description": "Color for border elements",
+          "label": "Border color",
+          "value": "#dadcdf"
+        },
+        {
+          "identifier": "block_bg",
+          "type": "color",
+          "description": "Background color for categories, sections, topics boxes",
+          "label": "Blocks color",
+          "value": "#f2f4fa"
+        },
+        {
+          "identifier": "block_hover_bg",
+          "type": "color",
+          "description": "Hover background color for categories, sections, topics boxes",
+          "label": "Hover blocks color",
+          "value": "#ff6f48"
+        }
+      ]
+    },
+    {
+      "label": "Formatting colors",
+      "variables": [
+        {
+          "identifier": "brand_info",
+          "type": "color",
+          "description": "Color for info elements",
+          "label": "Brand info color",
+          "value": "#0f7ec4"
+        },
+        {
+          "identifier": "brand_success",
+          "type": "color",
+          "description": "Color for success elements",
+          "label": "Brand success color",
+          "value": "#068677"
+        },
+        {
+          "identifier": "brand_warning",
+          "type": "color",
+          "description": "Color for warning elements",
+          "label": "Brand warning color",
+          "value": "#ff9900"
+        },
+        {
+          "identifier": "brand_danger",
+          "type": "color",
+          "description": "Color for danger elements",
+          "label": "Brand danger color",
+          "value": "#fe4538"
+        }
+      ]
+    },
+    {
+      "label": "Text",
+      "variables": [
+        {
+          "identifier": "font_size_base",
+          "type": "text",
+          "description": "Size for body text",
+          "label": "Text size",
+          "value": "16px"
+        },
+        {
+          "identifier": "heading_font",
+          "type": "list",
+          "description": "Font for headings",
+          "label": "Heading Font",
+          "value": "'Helvetica Neue', Arial, Helvetica, sans-serif",
+          "options": [
+            {
+              "label": "Metaverse",
+              "value": "'Metaverse', sans-serif"
+            },
+            {
+              "label": "Helvetica Neue",
+              "value": "'Helvetica Neue', Arial, Helvetica, sans-serif"
+            },
+            {
+              "label": "IBM Plex Sans",
+              "value": "'IBM Plex Sans', sans-serif"
+            },
+            {
+              "label": "Lato",
+              "value": "'Lato', sans-serif"
+            },
+            {
+              "label": "Lora",
+              "value": "Lora, serif"
+            },
+            {
+              "label": "Montserrat",
+              "value": "Montserrat, sans-serif"
+            },
+            {
+              "label": "Open Sans",
+              "value": "'Open Sans', sans-serif"
+            },
+            {
+              "label": "Inter",
+              "value": "Inter, sans-serif"
+            },
+            {
+              "label": "Source Sans Pro",
+              "value": "'Source Sans Pro', sans-serif"
+            }
+          ]
+        },
+        {
+          "identifier": "heading_font_weight",
+          "type": "text",
+          "description": "Boldness of headings",
+          "label": "Heading font weight",
+          "value": "300"
+        },
+        {
+          "identifier": "font_family_base",
+          "type": "list",
+          "description": "Font for body text",
+          "label": "Text font",
+          "value": "'Helvetica Neue', Arial, Helvetica, sans-serif",
+          "options": [
+            {
+              "label": "Metaverse",
+              "value": "'Metaverse', sans-serif"
+            },
+            {
+              "label": "Helvetica Neue",
+              "value": "'Helvetica Neue', Arial, Helvetica, sans-serif"
+            },
+            {
+              "label": "IBM Plex Sans",
+              "value": "'IBM Plex Sans', sans-serif"
+            },
+            {
+              "label": "Lato",
+              "value": "'Lato', sans-serif"
+            },
+            {
+              "label": "Lora",
+              "value": "Lora, serif"
+            },
+            {
+              "label": "Montserrat",
+              "value": "Montserrat, sans-serif"
+            },
+            {
+              "label": "Open Sans",
+              "value": "'Open Sans', sans-serif"
+            },
+            {
+              "label": "Inter",
+              "value": "Inter, sans-serif"
+            },
+            {
+              "label": "Source Sans Pro",
+              "value": "'Source Sans Pro', sans-serif"
+            }
+          ]
+        },
+        {
+          "identifier": "line_height_base",
+          "type": "text",
+          "description": "Space between the lines of text",
+          "label": "Text line height",
+          "value": "1.5"
+        }
+      ]
+    },
+    {
+      "label": "Brand",
+      "variables": [
+        {
+          "identifier": "logo",
+          "type": "file",
+          "description": "Company logo",
+          "label": "Logo"
+        },
+        {
+          "identifier": "logo_height",
+          "type": "text",
+          "description": "Height of the logo",
+          "label": "Logo height",
+          "value": "90px"
+        },
+        {
+          "identifier": "favicon",
+          "type": "file",
+          "description": "Icon displayed in the address bar of your browser",
+          "label": "Favicon"
+        },
+        {
+          "identifier": "border_radius_base",
+          "type": "text",
+          "description": "Border radius for buttons, forms, category boxes, etc.",
+          "label": "Border radius",
+          "value": "8px"
+        },
+        {
+          "identifier": "border_width",
+          "type": "text",
+          "description": "Border width for buttons and other elements",
+          "label": "Border width",
+          "value": "1px"
+        }
+      ]
+    },
+    {
+      "label": "Header Colors",
+      "variables": [
+        {
+          "identifier": "topbar_bg",
+          "type": "color",
+          "description": "Header background color",
+          "label": "Background color",
+          "value": "#ffffff"
+        },
+        {
+          "identifier": "topbar_text_color",
+          "type": "color",
+          "description": "Header text color",
+          "label": "Text color",
+          "value": "#131313"
+        },
+        {
+          "identifier": "topbar_link_color",
+          "type": "color",
+          "description": "Header link color",
+          "label": "Link color",
+          "value": "#131313"
+        },
+        {
+          "identifier": "topbar_button_color",
+          "type": "color",
+          "description": "Header button color",
+          "label": "Button color",
+          "value": "#131313"
+        }
+      ]
+    },
+    {
+      "label": "Header Elements",
+      "variables": [
+        {
+          "identifier": "show_help_center_name",
+          "type": "checkbox",
+          "description": "Display the Help Center name next to the logo",
+          "label": "Help Center name",
+          "value": false
+        },
+        {
+          "identifier": "help_center_name",
+          "type": "text",
+          "description": "Text displayed next to the logo",
+          "label": "Help Center name text",
+          "value": "Help Center"
+        },
+        {
+          "identifier": "show_category_menu",
+          "type": "checkbox",
+          "description": "A dropdown with links to categories",
+          "label": "Category menu",
+          "value": false
+        },
+        {
+          "identifier": "show_sign_in",
+          "type": "checkbox",
+          "description": "Show the sign-in link",
+          "label": "Sign-in",
+          "value": false
+        },
+        {
+          "identifier": "sign_in_url",
+          "type": "text",
+          "description": "The sign-in link URL",
+          "label": "Sign-in URL",
+          "value": "#"
+        },
+        {
+          "identifier": "show_submit_a_request",
+          "type": "checkbox",
+          "description": "Show the Submit a request option link",
+          "label": "Submit a request",
+          "value": true
+        }
+      ]
+    },
+    {
+      "label": "Header Link 1",
+      "variables": [
+        {
+          "identifier": "topbar_link_1_toggle",
+          "type": "checkbox",
+          "description": "Choose to display or not the link",
+          "label": "Show the link",
+          "value": false
+        },
+        {
+          "identifier": "topbar_link_1_title",
+          "type": "text",
+          "description": "Text of the link",
+          "label": "Text",
+          "value": "Collections"
+        },
+        {
+          "identifier": "topbar_link_1_url",
+          "type": "text",
+          "description": "Link URL",
+          "label": "URL",
+          "value": "#link1"
+        }
+      ]
+    },
+    {
+      "label": "Header Link 2",
+      "variables": [
+        {
+          "identifier": "topbar_link_2_toggle",
+          "type": "checkbox",
+          "description": "Choose to display or not the link",
+          "label": "Show the link",
+          "value": false
+        },
+        {
+          "identifier": "topbar_link_2_title",
+          "type": "text",
+          "description": "Text of the link",
+          "label": "Text",
+          "value": "Support"
+        },
+        {
+          "identifier": "topbar_link_2_url",
+          "type": "text",
+          "description": "Link URL",
+          "label": "URL",
+          "value": "/hc"
+        }
+      ]
+    },
+    {
+      "label": "Header Link 3",
+      "variables": [
+        {
+          "identifier": "topbar_link_3_toggle",
+          "type": "checkbox",
+          "description": "Choose to display or not the link",
+          "label": "Show the link",
+          "value": false
+        },
+        {
+          "identifier": "topbar_link_3_title",
+          "type": "text",
+          "description": "Text of the link",
+          "label": "Text",
+          "value": "About"
+        },
+        {
+          "identifier": "topbar_link_3_url",
+          "type": "text",
+          "description": "Link URL",
+          "label": "URL",
+          "value": "#link3"
+        }
+      ]
+    },
+    {
+      "label": "Footer",
+      "variables": [
+        {
+          "identifier": "footer_bg",
+          "type": "color",
+          "description": "Footer background color",
+          "label": "Background color",
+          "value": "#131313"
+        },
+        {
+          "identifier": "footer_text_color",
+          "type": "color",
+          "description": "Footer text color",
+          "label": "Text color",
+          "value": "#ffffff"
+        },
+        {
+          "identifier": "footer_link_color",
+          "type": "color",
+          "description": "Footer link color",
+          "label": "Link color",
+          "value": "#777777"
+        },
+        {
+          "identifier": "footer_copy",
+          "type": "text",
+          "description": "Text under the logo",
+          "label": "Description",
+          "value": "The fastest growing NFT Marketplace. A dedicated platform to buy, sell and discover unique gaming NFTs"
+        }
+      ]
+    },
+    {
+      "label": "Home page layout",
+      "variables": [
+        {
+          "identifier": "toggle_category_list",
+          "type": "checkbox",
+          "description": "Show the category list",
+          "label": "Category list",
+          "value": false
+        },
+        {
+          "identifier": "toggle_top_articles",
+          "type": "checkbox",
+          "description": "Show top articles",
+          "label": "Top articles",
+          "value": false
+        },
+        {
+          "identifier": "toggle_fees_articles",
+          "type": "checkbox",
+          "description": "Show fees articles",
+          "label": "Fees articles",
+          "value": false
+        },
+        {
+          "identifier": "toggle_custom_blocks",
+          "type": "checkbox",
+          "description": "Show Custom Blocks",
+          "label": "Custom Blocks",
+          "value": false
+        },
+        {
+          "identifier": "toggle_security_articles",
+          "type": "checkbox",
+          "description": "Show security articles",
+          "label": "Security articles",
+          "value": false
+        },
+        {
+          "identifier": "toggle_boost_cta",
+          "type": "checkbox",
+          "description": "Show the Boost your game CTA",
+          "label": "Boost your game CTA",
+          "value": true
+        },
+        {
+          "identifier": "toggle_promoted_articles",
+          "type": "checkbox",
+          "description": "Show promoted articles",
+          "label": "Promoted articles",
+          "value": false
+        },
+        {
+          "identifier": "promoted_articles_type",
+          "type": "list",
+          "description": "Select how you would like to display promoted articles",
+          "label": "Promoted articles display type",
+          "value": "list",
+          "options": [
+            {
+              "label": "Accordion",
+              "value": "accordion"
+            },
+            {
+              "label": "List",
+              "value": "list"
+            }
+          ]
+        },
+        {
+          "identifier": "toggle_recent_activities",
+          "type": "checkbox",
+          "description": "Show recent community activities",
+          "label": "Recent activities",
+          "value": false
+        },
+        {
+          "identifier": "toggle_contact_boxes",
+          "type": "checkbox",
+          "description": "Show the contact boxes",
+          "label": "Contact Boxes",
+          "value": false
+        },
+        {
+          "identifier": "toggle_bottom_cta",
+          "type": "checkbox",
+          "description": "Show CTA",
+          "label": "CTA",
+          "value": false
+        },
+        {
+          "identifier": "promoted_articles_per_line",
+          "type": "range",
+          "description": "Number of promoted articles displayed per line",
+          "label": "Number of promoted articles per line",
+          "value": 3,
+          "min": 1,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "label": "Category List",
+      "variables": [
+        {
+          "identifier": "category_list_title",
+          "type": "text",
+          "description": "Title of the block",
+          "label": "Title",
+          "value": "Staking Merit Circle"
+        },
+        {
+          "identifier": "category_list_subtitle",
+          "type": "text",
+          "description": "Subtitle of the block",
+          "label": "Subtitle",
+          "value": "After deploying our MC token into the blockchain airwaves, we’ll give you the chance to stake your tokens. We have set aside a substantial amount of tokens in rewards for staking, but this is just a fraction of the rewards you can receive by staking the MC token. Merit Circle is at the forefront of the play-to-earn industry, partnering with multiple games. Through these partnerships, we’ll have the ability to offer exclusive in-game rewards and early access to these games among other exciting structures. Besides that, we aim to provide our token holders with early access to NFT drops from our partners, but also from Merit Circle itself. Please note that the breakdown of the token mentioned above is based on the initial set-up of our DAO. There will most likely be more uses in future as our DAO progresses and branches into other areas."
+        },
+        {
+          "identifier": "category_list_ids",
+          "type": "text",
+          "description": "List of category IDs separated by commas",
+          "label": "Categories",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "label": "Top Articles",
+      "variables": [
+        {
+          "identifier": "top_articles_title",
+          "type": "text",
+          "description": "The title of the block",
+          "label": "Title",
+          "value": "FAQ Staking"
+        },
+        {
+          "identifier": "top_articles_max",
+          "type": "text",
+          "description": "Maximum number of visible articles",
+          "label": "Articles limit",
+          "value": "6"
+        }
+      ]
+    },
+    {
+      "label": "Fees Articles",
+      "variables": [
+        {
+          "identifier": "fees_articles_title",
+          "type": "text",
+          "description": "The title of the block",
+          "label": "Title",
+          "value": "More about fees on Sphere"
+        },
+        {
+          "identifier": "fees_articles_max",
+          "type": "text",
+          "description": "Maximum number of visible articles",
+          "label": "Articles limit",
+          "value": "6"
+        }
+      ]
+    },
+    {
+      "label": "Security Articles",
+      "variables": [
+        {
+          "identifier": "security_articles_title",
+          "type": "text",
+          "description": "The title of the block",
+          "label": "Title",
+          "value": "More about security on Sphere"
+        },
+        {
+          "identifier": "security_articles_max",
+          "type": "text",
+          "description": "Maximum number of visible articles",
+          "label": "Articles limit",
+          "value": "6"
+        }
+      ]
+    },
+    {
+      "label": "Search Bar",
+      "variables": [
+        {
+          "identifier": "search_placeholder",
+          "type": "text",
+          "description": "Text for the search field",
+          "label": "Search placeholder",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "label": "Custom Blocks (More on...)",
+      "variables": [
+        {
+          "identifier": "custom_blocks_title",
+          "type": "text",
+          "description": "The title of the block",
+          "label": "Title",
+          "value": "More on buying and selling on Sphere"
+        }
+      ]
+    },
+    {
+      "label": "Custom Block 1",
+      "variables": [
+        {
+          "identifier": "custom_block_1_toggle",
+          "type": "checkbox",
+          "description": "Show or hide the custom block",
+          "label": "Show Custom Block",
+          "value": false
+        },
+        {
+          "identifier": "custom_block_1_type",
+          "type": "list",
+          "description": "Custom block type",
+          "label": "Type",
+          "value": "custom",
+          "options": [
+            {
+              "label": "Custom",
+              "value": "custom"
+            },
+            {
+              "label": "Community",
+              "value": "community"
+            },
+            {
+              "label": "Submit a request",
+              "value": "new_request"
+            }
+          ]
+        },
+        {
+          "identifier": "custom_block_1_icon",
+          "type": "file",
+          "description": "The recommended dimensions: 100x100px",
+          "label": "Icon"
+        },
+        {
+          "identifier": "custom_block_1_title",
+          "type": "text",
+          "description": "Custom block title",
+          "label": "Title",
+          "value": "Buying"
+        },
+        {
+          "identifier": "custom_block_1_text",
+          "type": "text",
+          "description": "Custom block 1 text",
+          "label": "Text",
+          "value": "Everything you need to know to buy NFTs on Sphere"
+        },
+        {
+          "identifier": "custom_block_1_url",
+          "type": "text",
+          "description": "Custom block URL",
+          "label": "URL",
+          "value": "https://lotus-sphere-demo.zendesk.com/hc/en-us/categories/6950027873693-Buying"
+        }
+      ]
+    },
+    {
+      "label": "Custom Block 2",
+      "variables": [
+        {
+          "identifier": "custom_block_2_toggle",
+          "type": "checkbox",
+          "description": "Show or hide the custom block",
+          "label": "Show Custom Block",
+          "value": false
+        },
+        {
+          "identifier": "custom_block_2_type",
+          "type": "list",
+          "description": "Custom block type",
+          "label": "Type",
+          "value": "custom",
+          "options": [
+            {
+              "label": "Custom",
+              "value": "custom"
+            },
+            {
+              "label": "Community",
+              "value": "community"
+            },
+            {
+              "label": "Submit a request",
+              "value": "new_request"
+            }
+          ]
+        },
+        {
+          "identifier": "custom_block_2_icon",
+          "type": "file",
+          "description": "The recommended dimensions: 100x100px",
+          "label": "Icon"
+        },
+        {
+          "identifier": "custom_block_2_title",
+          "type": "text",
+          "description": "Custom block title",
+          "label": "Title",
+          "value": "Selling"
+        },
+        {
+          "identifier": "custom_block_2_text",
+          "type": "text",
+          "description": "Custom block 2 text",
+          "label": "Text",
+          "value": "Everything you need to know about selling NFTs on Sphere"
+        },
+        {
+          "identifier": "custom_block_2_url",
+          "type": "text",
+          "description": "Custom block URL",
+          "label": "URL",
+          "value": "https://lotus-sphere-demo.zendesk.com/hc/en-us/categories/6950028267293-Selling"
+        }
+      ]
+    },
+    {
+      "label": "Custom Block 3",
+      "variables": [
+        {
+          "identifier": "custom_block_3_toggle",
+          "type": "checkbox",
+          "description": "Show or hide the custom block",
+          "label": "Show Custom Block",
+          "value": false
+        },
+        {
+          "identifier": "custom_block_3_type",
+          "type": "list",
+          "description": "Custom block type",
+          "label": "Type",
+          "value": "community",
+          "options": [
+            {
+              "label": "Custom",
+              "value": "custom"
+            },
+            {
+              "label": "Community",
+              "value": "community"
+            },
+            {
+              "label": "Submit a request",
+              "value": "new_request"
+            }
+          ]
+        },
+        {
+          "identifier": "custom_block_3_icon",
+          "type": "file",
+          "description": "The recommended dimensions: 100x100px",
+          "label": "Icon"
+        },
+        {
+          "identifier": "custom_block_3_title",
+          "type": "text",
+          "description": "Custom block title",
+          "label": "Title",
+          "value": "Community"
+        },
+        {
+          "identifier": "custom_block_3_text",
+          "type": "text",
+          "description": "Custom block 3 text",
+          "label": "Text",
+          "value": "Join discussions with other users"
+        },
+        {
+          "identifier": "custom_block_3_url",
+          "type": "text",
+          "description": "Custom block URL",
+          "label": "URL",
+          "value": "#"
+        }
+      ]
+    },
+    {
+      "label": "Custom Block 4",
+      "variables": [
+        {
+          "identifier": "custom_block_4_toggle",
+          "type": "checkbox",
+          "description": "Show or hide the custom block",
+          "label": "Show Custom Block",
+          "value": false
+        },
+        {
+          "identifier": "custom_block_4_type",
+          "type": "list",
+          "description": "Custom block type",
+          "label": "Type",
+          "value": "new_request",
+          "options": [
+            {
+              "label": "Custom",
+              "value": "custom"
+            },
+            {
+              "label": "Community",
+              "value": "community"
+            },
+            {
+              "label": "Submit a request",
+              "value": "new_request"
+            }
+          ]
+        },
+        {
+          "identifier": "custom_block_4_icon",
+          "type": "file",
+          "description": "The recommended dimensions: 100x100px",
+          "label": "Icon"
+        },
+        {
+          "identifier": "custom_block_4_title",
+          "type": "text",
+          "description": "Custom block title",
+          "label": "Title",
+          "value": "Submit a request"
+        },
+        {
+          "identifier": "custom_block_4_text",
+          "type": "text",
+          "description": "Custom block 4 text",
+          "label": "Text",
+          "value": "Contact us through a specially prepared form"
+        },
+        {
+          "identifier": "custom_block_4_url",
+          "type": "text",
+          "description": "Custom block URL",
+          "label": "URL",
+          "value": "#"
+        }
+      ]
+    },
+    {
+      "label": "Custom Block 5",
+      "variables": [
+        {
+          "identifier": "custom_block_5_toggle",
+          "type": "checkbox",
+          "description": "Show or hide the custom block",
+          "label": "Show Custom Block",
+          "value": false
+        },
+        {
+          "identifier": "custom_block_5_type",
+          "type": "list",
+          "description": "Custom block type",
+          "label": "Type",
+          "value": "custom",
+          "options": [
+            {
+              "label": "Custom",
+              "value": "custom"
+            },
+            {
+              "label": "Community",
+              "value": "community"
+            },
+            {
+              "label": "Submit a request",
+              "value": "new_request"
+            }
+          ]
+        },
+        {
+          "identifier": "custom_block_5_icon",
+          "type": "file",
+          "description": "The recommended dimensions: 100x100px",
+          "label": "Icon"
+        },
+        {
+          "identifier": "custom_block_5_title",
+          "type": "text",
+          "description": "Custom block title",
+          "label": "Title",
+          "value": "Hidden"
+        },
+        {
+          "identifier": "custom_block_5_text",
+          "type": "text",
+          "description": "Custom block 5 text",
+          "label": "Text",
+          "value": "Custom block text"
+        },
+        {
+          "identifier": "custom_block_5_url",
+          "type": "text",
+          "description": "Custom block URL",
+          "label": "URL",
+          "value": "#"
+        }
+      ]
+    },
+    {
+      "label": "Custom Block 6",
+      "variables": [
+        {
+          "identifier": "custom_block_6_toggle",
+          "type": "checkbox",
+          "description": "Show or hide the custom block",
+          "label": "Show Custom Block",
+          "value": false
+        },
+        {
+          "identifier": "custom_block_6_type",
+          "type": "list",
+          "description": "Custom block type",
+          "label": "Type",
+          "value": "custom",
+          "options": [
+            {
+              "label": "Custom",
+              "value": "custom"
+            },
+            {
+              "label": "Community",
+              "value": "community"
+            },
+            {
+              "label": "Submit a request",
+              "value": "new_request"
+            }
+          ]
+        },
+        {
+          "identifier": "custom_block_6_icon",
+          "type": "file",
+          "description": "The recommended dimensions: 100x100px",
+          "label": "Icon"
+        },
+        {
+          "identifier": "custom_block_6_title",
+          "type": "text",
+          "description": "Custom block title",
+          "label": "Title",
+          "value": "Hidden"
+        },
+        {
+          "identifier": "custom_block_6_text",
+          "type": "text",
+          "description": "Custom block 6 text",
+          "label": "Text",
+          "value": "Custom block text"
+        },
+        {
+          "identifier": "custom_block_6_url",
+          "type": "text",
+          "description": "Custom block URL",
+          "label": "URL",
+          "value": "#"
+        }
+      ]
+    },
+    {
+      "label": "Boost your game CTA",
+      "variables": [
+        {
+          "identifier": "boost_cta_image_toggle",
+          "type": "checkbox",
+          "description": "Show or hide the image",
+          "label": "Show Image",
+          "value": true
+        },
+        {
+          "identifier": "boost_cta_image",
+          "type": "file",
+          "description": "CTA image",
+          "label": "Icon"
+        },
+        {
+          "identifier": "boost_cta_title",
+          "type": "text",
+          "description": "CTA title",
+          "label": "Title",
+          "value": ""
+        },
+        {
+          "identifier": "boost_cta_url",
+          "type": "text",
+          "description": "CTA URL",
+          "label": "URL",
+          "value": "https://t.me/meritcircle"
+        }
+      ]
+    },
+    {
+      "label": "Bottom CTA",
+      "variables": [
+        {
+          "identifier": "bottom_cta_bg",
+          "type": "color",
+          "description": "Background color of the CTA",
+          "label": "Background color",
+          "value": "#131313"
+        },
+        {
+          "identifier": "bottom_cta_title_color",
+          "type": "color",
+          "description": "Text color of the title",
+          "label": "Title color",
+          "value": "#fff"
+        },
+        {
+          "identifier": "bottom_cta_subtitle_color",
+          "type": "color",
+          "description": "Text color of the subtitle",
+          "label": "Subtitle color",
+          "value": "#fff"
+        },
+        {
+          "identifier": "bottom_cta_button_color",
+          "type": "color",
+          "description": "Color of the button element",
+          "label": "Button color",
+          "value": "#039afe"
+        },
+        {
+          "identifier": "bottom_cta_title",
+          "type": "text",
+          "description": "Title at the bottom of the homepage section",
+          "label": "Title",
+          "value": "Can't find what you're looking for?"
+        },
+        {
+          "identifier": "bottom_cta_subtitle",
+          "type": "text",
+          "description": "Subtitle at the bottom of the homepage section",
+          "label": "Subtitle",
+          "value": "Let us help you!"
+        }
+      ]
+    },
+    {
+      "label": "Contact Boxes",
+      "variables": [
+        {
+          "identifier": "contact_boxes_title",
+          "type": "text",
+          "description": "Title above the contact boxes",
+          "label": "Contact boxes title",
+          "value": "More Resources"
+        },
+        {
+          "identifier": "contact_boxes_per_line",
+          "type": "range",
+          "description": "Number of contact boxes displayed per line",
+          "label": "Number of contact boxes per line",
+          "value": 4,
+          "min": 1,
+          "max": 6
+        },
+        {
+          "identifier": "contact_boxes_icon_size",
+          "type": "text",
+          "description": "Height of the contact boxes icons",
+          "label": "Icon height",
+          "value": "2rem"
+        }
+      ]
+    },
+    {
+      "label": "Contact Box 1",
+      "variables": [
+        {
+          "identifier": "contact_box_1_toggle",
+          "type": "checkbox",
+          "description": "Show or hide the Contact Box",
+          "label": "Show Contact Box",
+          "value": true
+        },
+        {
+          "identifier": "contact_box_1_link_toggle",
+          "type": "checkbox",
+          "description": "Enable this option if you want to use the box as link",
+          "label": "Use as link",
+          "value": false
+        },
+        {
+          "identifier": "contact_box_1_url",
+          "type": "text",
+          "description": "Contact box URL",
+          "label": "URL",
+          "value": "#"
+        },
+        {
+          "identifier": "contact_box_1_icon",
+          "type": "file",
+          "description": "The recommended dimensions: 100x100px",
+          "label": "Icon"
+        },
+        {
+          "identifier": "contact_box_1_title",
+          "type": "text",
+          "description": "Contact Box title",
+          "label": "Title",
+          "value": "Register your product"
+        },
+        {
+          "identifier": "contact_box_1_text",
+          "type": "text",
+          "description": "Contact Box title",
+          "label": "Title",
+          "value": "You can get support that’s tailored to you, owner exclusives and more"
+        }
+      ]
+    },
+    {
+      "label": "Contact Box 2",
+      "variables": [
+        {
+          "identifier": "contact_box_2_toggle",
+          "type": "checkbox",
+          "description": "Show or hide the Contact Box",
+          "label": "Show Contact Box",
+          "value": true
+        },
+        {
+          "identifier": "contact_box_2_link_toggle",
+          "type": "checkbox",
+          "description": "Enable this option if you want to use the box as link",
+          "label": "Use as link",
+          "value": false
+        },
+        {
+          "identifier": "contact_box_2_url",
+          "type": "text",
+          "description": "Contact box URL",
+          "label": "URL",
+          "value": "#"
+        },
+        {
+          "identifier": "contact_box_2_icon",
+          "type": "file",
+          "description": "The recommended dimensions: 100x100px",
+          "label": "Icon"
+        },
+        {
+          "identifier": "contact_box_2_title",
+          "type": "text",
+          "description": "Contact Box title",
+          "label": "Title",
+          "value": "Our helpline hours:"
+        },
+        {
+          "identifier": "contact_box_2_text",
+          "type": "text",
+          "description": "Contact Box title",
+          "label": "Title",
+          "value": "8:00am - 8:00pm CST Monday to Friday; 9:00am - 6:00pm CST Saturday"
+        }
+      ]
+    },
+    {
+      "label": "Contact Box 3",
+      "variables": [
+        {
+          "identifier": "contact_box_3_toggle",
+          "type": "checkbox",
+          "description": "Show or hide the Contact Box",
+          "label": "Show Contact Box",
+          "value": true
+        },
+        {
+          "identifier": "contact_box_3_link_toggle",
+          "type": "checkbox",
+          "description": "Enable this option if you want to use the box as link",
+          "label": "Use as link",
+          "value": false
+        },
+        {
+          "identifier": "contact_box_3_url",
+          "type": "text",
+          "description": "Contact box URL",
+          "label": "URL",
+          "value": "#"
+        },
+        {
+          "identifier": "contact_box_3_icon",
+          "type": "file",
+          "description": "The recommended dimensions: 100x100px",
+          "label": "Icon"
+        },
+        {
+          "identifier": "contact_box_3_title",
+          "type": "text",
+          "description": "Contact Box title",
+          "label": "Title",
+          "value": "Follow us on Twitter"
+        },
+        {
+          "identifier": "contact_box_3_text",
+          "type": "text",
+          "description": "Contact Box title",
+          "label": "Title",
+          "value": "Get the latest news and updates first"
+        }
+      ]
+    },
+    {
+      "label": "Contact Box 4",
+      "variables": [
+        {
+          "identifier": "contact_box_4_toggle",
+          "type": "checkbox",
+          "description": "Show or hide the Contact Box",
+          "label": "Show Contact Box",
+          "value": true
+        },
+        {
+          "identifier": "contact_box_4_link_toggle",
+          "type": "checkbox",
+          "description": "Enable this option if you want to use the box as link",
+          "label": "Use as link",
+          "value": true
+        },
+        {
+          "identifier": "contact_box_4_url",
+          "type": "text",
+          "description": "Contact box URL",
+          "label": "URL",
+          "value": "#"
+        },
+        {
+          "identifier": "contact_box_4_icon",
+          "type": "file",
+          "description": "The recommended dimensions: 100x100px",
+          "label": "Icon"
+        },
+        {
+          "identifier": "contact_box_4_title",
+          "type": "text",
+          "description": "Contact Box title",
+          "label": "Title",
+          "value": "YouTube Support"
+        },
+        {
+          "identifier": "contact_box_4_text",
+          "type": "text",
+          "description": "Contact Box title",
+          "label": "Title",
+          "value": "For how-to and support videos please visit our channel"
+        }
+      ]
+    },
+    {
+      "label": "Article page elements",
+      "variables": [
+        {
+          "identifier": "show_articles_in_section",
+          "type": "checkbox",
+          "description": "Show sidebar of articles in section",
+          "label": "Articles in section",
+          "value": true
+        },
+        {
+          "identifier": "show_article_author",
+          "type": "checkbox",
+          "description": "Show author image and name",
+          "label": "Author",
+          "value": true
+        },
+        {
+          "identifier": "show_article_comments",
+          "type": "checkbox",
+          "description": "Show comments on articles",
+          "label": "Comments",
+          "value": true
+        },
+        {
+          "identifier": "show_follow_article",
+          "type": "checkbox",
+          "description": "Users can follow a specific article",
+          "label": "Follow",
+          "value": true
+        },
+        {
+          "identifier": "show_print_article",
+          "type": "checkbox",
+          "description": "Users can click the button to print an article",
+          "label": "Print Button",
+          "value": true
+        },
+        {
+          "identifier": "show_article_sharing",
+          "type": "checkbox",
+          "description": "Show social media sharing on article",
+          "label": "Social sharing",
+          "value": true
+        },
+        {
+          "identifier": "show_article_boxes",
+          "type": "checkbox",
+          "description": "Show articles boxes",
+          "label": "Articles boxes",
+          "value": true
+        }
+      ]
+    },
+    {
+      "label": "Article Boxes",
+      "variables": [
+        {
+          "identifier": "article_boxes_icon_size",
+          "type": "text",
+          "description": "Height of the Article boxes icons",
+          "label": "Icon height",
+          "value": "2rem"
+        }
+      ]
+    },
+    {
+      "label": "Article Box 1",
+      "variables": [
+        {
+          "identifier": "article_box_1_toggle",
+          "type": "checkbox",
+          "description": "Show or hide the article box",
+          "label": "Show article box",
+          "value": false
+        },
+        {
+          "identifier": "article_box_1_link_toggle",
+          "type": "checkbox",
+          "description": "Enable this option if you want to use the box as link",
+          "label": "Use as link",
+          "value": true
+        },
+        {
+          "identifier": "article_box_1_url",
+          "type": "text",
+          "description": "Custom block URL",
+          "label": "URL",
+          "value": "#"
+        },
+        {
+          "identifier": "article_box_1_icon",
+          "type": "file",
+          "description": "The recommended dimensions: 100x100px",
+          "label": "Icon"
+        },
+        {
+          "identifier": "article_box_1_title",
+          "type": "text",
+          "description": "Article Box title",
+          "label": "Title",
+          "value": "Register your product"
+        },
+        {
+          "identifier": "article_box_1_text",
+          "type": "text",
+          "description": "Article Box title",
+          "label": "Title",
+          "value": "You can get support that’s tailored to you, owner exclusives and more"
+        }
+      ]
+    },
+    {
+      "label": "Article Box 2",
+      "variables": [
+        {
+          "identifier": "article_box_2_toggle",
+          "type": "checkbox",
+          "description": "Show or hide the article box",
+          "label": "Show article box",
+          "value": false
+        },
+        {
+          "identifier": "article_box_2_link_toggle",
+          "type": "checkbox",
+          "description": "Enable this option if you want to use the box as link",
+          "label": "Use as link",
+          "value": true
+        },
+        {
+          "identifier": "article_box_2_url",
+          "type": "text",
+          "description": "Custom block URL",
+          "label": "URL",
+          "value": "#"
+        },
+        {
+          "identifier": "article_box_2_icon",
+          "type": "file",
+          "description": "The recommended dimensions: 100x100px",
+          "label": "Icon"
+        },
+        {
+          "identifier": "article_box_2_title",
+          "type": "text",
+          "description": "Article Box title",
+          "label": "Title",
+          "value": "Our helpline hours:"
+        },
+        {
+          "identifier": "article_box_2_text",
+          "type": "text",
+          "description": "Article Box title",
+          "label": "Title",
+          "value": "8:00am - 8:00pm CST Monday to Friday; 9:00am - 6:00pm CST Saturday"
+        }
+      ]
+    },
+    {
+      "label": "Article Box 3",
+      "variables": [
+        {
+          "identifier": "article_box_3_toggle",
+          "type": "checkbox",
+          "description": "Show or hide the article box",
+          "label": "Show article box",
+          "value": false
+        },
+        {
+          "identifier": "article_box_3_link_toggle",
+          "type": "checkbox",
+          "description": "Enable this option if you want to use the box as link",
+          "label": "Use as link",
+          "value": true
+        },
+        {
+          "identifier": "article_box_3_url",
+          "type": "text",
+          "description": "Custom block URL",
+          "label": "URL",
+          "value": "#"
+        },
+        {
+          "identifier": "article_box_3_icon",
+          "type": "file",
+          "description": "The recommended dimensions: 100x100px",
+          "label": "Icon"
+        },
+        {
+          "identifier": "article_box_3_title",
+          "type": "text",
+          "description": "Article Box title",
+          "label": "Title",
+          "value": "Follow us on Twitter"
+        },
+        {
+          "identifier": "article_box_3_text",
+          "type": "text",
+          "description": "Article Box title",
+          "label": "Title",
+          "value": "Get the latest news and updates first"
+        }
+      ]
+    },
+    {
+      "label": "Article Box 4",
+      "variables": [
+        {
+          "identifier": "article_box_4_toggle",
+          "type": "checkbox",
+          "description": "Show or hide the article box",
+          "label": "Show article box",
+          "value": false
+        },
+        {
+          "identifier": "article_box_4_link_toggle",
+          "type": "checkbox",
+          "description": "Enable this option if you want to use the box as link",
+          "label": "Use as link",
+          "value": true
+        },
+        {
+          "identifier": "article_box_4_url",
+          "type": "text",
+          "description": "Custom block URL",
+          "label": "URL",
+          "value": "#"
+        },
+        {
+          "identifier": "article_box_4_icon",
+          "type": "file",
+          "description": "The recommended dimensions: 100x100px",
+          "label": "Icon"
+        },
+        {
+          "identifier": "article_box_4_title",
+          "type": "text",
+          "description": "Article Box title",
+          "label": "Title",
+          "value": "YouTube Support"
+        },
+        {
+          "identifier": "article_box_4_text",
+          "type": "text",
+          "description": "Article Box title",
+          "label": "Title",
+          "value": "Fow how-to and support videos please visit our channel"
+        }
+      ]
+    },
+    {
+      "label": "Section page elements",
+      "variables": [
+        {
+          "identifier": "show_follow_section",
+          "type": "checkbox",
+          "description": "Users can follow a specific section",
+          "label": "Follow",
+          "value": true
+        }
+      ]
+    },
+    {
+      "label": "Community post elements",
+      "variables": [
+        {
+          "identifier": "show_follow_community_post",
+          "type": "checkbox",
+          "description": "Users can follow a specific post",
+          "label": "Follow",
+          "value": true
+        },
+        {
+          "identifier": "show_print_post",
+          "type": "checkbox",
+          "description": "Users can click the button to print a post",
+          "label": "Print Button",
+          "value": true
+        },
+        {
+          "identifier": "show_community_post_sharing",
+          "type": "checkbox",
+          "description": "Show social media sharing on post",
+          "label": "Social sharing",
+          "value": true
+        }
+      ]
+    },
+    {
+      "label": "Community topic elements",
+      "variables": [
+        {
+          "identifier": "show_follow_community_topic",
+          "type": "checkbox",
+          "description": "Users can follow a specific topic",
+          "label": "Follow",
+          "value": true
+        }
+      ]
+    },
+    {
+      "label": "New request elements",
+      "variables": [
+        {
+          "identifier": "show_new_request_tip",
+          "type": "checkbox",
+          "description": "Show or hide new request page tip",
+          "label": "Show new request page tip",
+          "value": true
+        },
+        {
+          "identifier": "new_request_tip_background",
+          "type": "color",
+          "description": "Background color of the new request page tip",
+          "label": "Background color",
+          "value": "#f3fafc"
+        },
+        {
+          "identifier": "new_request_tip_text",
+          "type": "text",
+          "description": "Text of the tip to display",
+          "label": "Text",
+          "value": "Aim to include as much information and detail in your request as possible to reduce delays between replies"
+        }
+      ]
+    },
+    {
+      "label": "Error page elements",
+      "variables": [
+        {
+          "identifier": "error_page_articles_title",
+          "type": "text",
+          "description": "Text for the promoted articles",
+          "label": "Helpful articles title",
+          "value": "These articles might be helpful"
+        }
+      ]
+    }
+  ]
+}

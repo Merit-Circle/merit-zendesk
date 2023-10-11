@@ -1,0 +1,419 @@
+<div class="lt-container article-page">
+  <div class="lt-container-inner">
+    <div class="lt-row lt-align-items-center lt-mb-5 lt-d-print-none">
+      <div class="lt-col-md-8 lt-mb-4">
+        {{breadcrumbs}}
+      </div>
+    </div>
+
+    <div class="lt-article-container" id="main-content">
+      <div class="lt-article-container__column lt-article-container__sidenav">
+        <div data-sidenav='{"mobileBreakpoint": 991}'></div>
+      </div>
+      <div class="lt-article-container__column lt-article-container__article">
+        <article class="lt-article lt-mb-6" data-article itemscope itemtype="http://schema.org/Article">
+          <header>
+            <h1 class="lt-article__title lt-mb-4 lt-fs-3 lt-fs-md-1" itemprop="name">
+              {{#if article.internal}}
+                <span class="fa fa-lock" title="{{t 'internal'}}"> </span>
+              {{/if}}
+              {{article.title}}
+            </h1>
+
+            <div class="lt-d-sm-flex lt-justify-content-between lt-mb-4 lt-align-items-start">
+              <div class="lt-mb-2 lt-me-sm-4">
+                <div class="lt-entry-info ">
+                  {{#if settings.show_article_author}}
+                    <div class="lt-entry-info__avatar">
+                      <div
+                          class="lt-avatar {{#if article.author.agent}}lt-avatar--agent{{/if}}">
+                        <img 
+                          class="lt-user-avatar lt-user-avatar--default"
+                          src="{{article.author.avatar_url}}" alt="" />
+                      </div>
+                    </div>
+                  {{/if}}
+                  <div class="lt-entry-info__content">
+                    {{#if settings.show_article_author}}
+                      <b class="author">
+                        {{#link 'user_profile' id=article.author.id}}
+                        {{article.author.name}}
+                        {{/link}}
+                      </b>
+                    {{/if}}
+                    <div class="lt-meta">
+                      {{#is article.created_at article.edited_at}}
+                        {{date article.created_at timeago=true}}
+                      {{else}}
+                        {{t 'updated'}} {{date article.edited_at timeago=true}}
+                      {{/is}}
+                    </div>
+
+                    {{#if article.author.badges}}
+                      <div class="lt-pt-1">
+                        {{#each article.author.badges}}
+                          {{#is category_slug "titles"}}
+                            <span class="community-badge community-badge-titles" title="{{description}}"
+                                  aria-label="{{name}}">
+                              {{#if icon_url}}
+                                <img src="{{icon_url}}" alt="" />
+                              {{/if}}
+                              {{name}}
+                            </span>
+                          {{/is}}
+                        {{/each}}
+                        
+                        {{#each article.author.badges}}
+                          {{#is category_slug "achievements"}}
+                            {{#if icon_url}}
+                              <div class="community-badge community-badge-achievements">
+                                <img src="{{icon_url}}" alt="{{name}}"
+                                    title="{{name}} | {{description}}" aria-label="{{name}}" />
+                              </div>
+                            {{/if}}
+                          {{/is}}
+                        {{/each}}
+                      </div>
+                    {{/if}}
+                  </div>
+                </div>
+              </div>
+
+              <div class="lt-article-subscribe lt-d-flex lt-d-print-none lt-align-items-center">
+                {{#if settings.show_print_article}}
+                  <button class="lt-btn lt-btn--print" onclick="javascript:print();">
+                    <span class="fas fa-print" aria-hidden="true">
+                    </span>
+                  </button>
+                {{/if}}
+                {{#if settings.show_article_sharing}}
+                  <div class="lt-dropdown" aria-haspopup="true">
+                    <button class="lt-btn lt-btn--print lt-dropdown-toggle lt-dropdown-toggle--no-icon">
+                      <span class="fas fa-share-square lt-ms-2" aria-hidden="true">
+                      </span>
+                      <span class="sr-only">{{t 'share'}}</span>
+                    </button>
+                    <div class="lt-dropdown-menu lt-px-4">
+                      {{share}}
+                    </div>
+                  </div>
+                {{/if}}
+
+                {{#if settings.show_follow_article}}
+                  {{subscribe}}
+                {{/if}}
+              </div>
+            </div>
+          </header>
+
+          <div class="lt-article__body" itemprop="articleBody">
+            {{article.body}}
+          </div>
+
+          {{#if attachments}}
+            <ul class="lt-list-unstyled lt-attachment-list lt-mb-4">
+              {{#each attachments}}
+                <li class="lt-attachment-list__item">
+                  <span class="fa fa-paperclip lt-attachment-list__icon" aria-hidden="true"></span>
+                  <a href="{{url}}" target="_blank">{{name}}</a>
+                  <div class="lt-meta">({{size}})</div>
+                </li>
+              {{/each}}
+            </ul>
+          {{/if}}
+
+          <div data-prevnext></div>
+        </article>
+
+        {{#with article}}
+          <footer class="lt-article-vote lt-d-print-none lt-mb-6 lt-p-5">
+            <div class="h5 lt-article-vote__question">{{t 'was_this_article_helpful'}}</div>
+            <div class="lt-article-vote__controls lt-mb-3">
+              {{vote 'up' class='lt-btn lt-btn--default lt-article-vote__item lt-article-vote__item--up' selected_class='lt-article-vote__item--voted' role='button'}}
+              {{vote 'down' class='lt-btn lt-btn--default lt-article-vote__item lt-article-vote__item--down' selected_class='lt-article-vote__item--voted' role='button'}}
+            </div>
+            <small class="lt-article-vote__count">
+              {{vote 'label' class='lt-article-vote-label'}}
+            </small>
+          </footer>
+        {{/with}}
+
+        {{!-- Article Comments --}}
+
+        {{#if settings.show_article_comments}}
+          <section class="lt-comments" itemscope itemtype="http://schema.org/UserComments" id="article-comments">
+            <header class="lt-comments__header ">
+              <h2>{{t 'comments'}}</h2>
+              <div class="lt-comment-sorter lt-mb-5 lt-d-print-none lt-d-md-flex lt-align-items-center lt-justify-content-between">
+                <div class="lt-mb-4 lt-pe-md-4">
+                  {{t 'comments_count' count=article.comment_count}}
+                </div>
+          
+                {{#if comments}}
+                  <div class="lt-dropdown lt-mb-4">
+                    <button
+                      class="lt-dropdown-toggle lt-btn lt-btn--default"
+                      aria-haspopup="true">{{t 'sort_by'}}</button>
+                    <span class="lt-dropdown-menu lt-dropdown-menu-end" role="menu">
+                      {{#each comment_sorters}}
+                        <a 
+                          aria-selected="{{selected}}" 
+                          href="{{url}}"
+                          role="menuitem">{{name}}</a>
+                      {{/each}}
+                    </span>
+                  </div>
+                {{/if}}
+              </div>
+            </header>
+          
+            {{#if comments}}
+              <ul class="lt-comments__list" id="comments">
+                {{#each comments}}
+                  <li class="lt-comment" id="{{anchor}}">
+                    <div class="lt-comment__inner">
+                      <div class="lt-comment__content">
+                        <div class="lt-entry-info lt-comment__header">
+                          <div class="lt-entry-info__avatar">
+                            <div class="lt-avatar {{#if author.agent}}lt-avatar--agent{{/if}}">
+                              <img class="lt-user-avatar lt-user-avatar--default" src="{{author.avatar_url}}" alt="Avatar">
+                            </div>
+                          </div>
+                          <div class="lt-entry-info__content">
+                            <b class="author">
+                              {{#link 'user_profile' id=author.id}}
+                              {{author.name}}
+                              {{/link}}
+                            </b>
+
+                            <div class="lt-meta">
+                              {{date created_at timeago=true}}
+                              {{#if editor}}
+                                ({{t 'edited'}} {{date edited_at timeago=true}})
+                              {{/if}}
+                            </div>
+
+                            {{#if author.badges}}
+                              <div class="lt-pt-1">
+                                {{#each author.badges}}
+                                  {{#is category_slug "titles"}}
+                                    <span class="community-badge community-badge-titles"
+                                          title="{{description}}" aria-label="{{name}}">
+                                      {{#if icon_url}}
+                                        <img src="{{icon_url}}" alt="" />
+                                      {{/if}}
+                                      {{name}}
+                                    </span>
+                                  {{/is}}
+                                {{/each}}
+                            
+                                {{#each author.badges}}
+                                  {{#is category_slug "achievements"}}
+                                    {{#if icon_url}}
+                                      <div class="community-badge community-badge-achievements">
+                                        <img src="{{icon_url}}" alt="{{name}}"
+                                            title="{{name}} | {{description}}" aria-label="{{name}}" />
+                                      </div>
+                                    {{/if}}
+                                  {{/is}}
+                                {{/each}}
+                              </div>
+                            {{/if}}
+                          </div>
+                        </div>
+          
+                        <div class="lt-comment__body">
+                          {{body}}
+                        </div>
+          
+                        {{#if pending}}
+                          <span
+                                class="lt-status-label lt-status-label--pending">{{t 'pending_approval'}}</span>
+                        {{/if}}
+          
+                        {{#with ticket}}
+                          <a class="lt-status-label lt-status-label--with-ticket" href="{{url}}" target="_zendesk_lotus">
+                            {{t 'request'}} {{id}}
+                          </a>
+                        {{/with}}
+                      </div>
+          
+                      <div class="lt-comment__voting-and-actions">
+                        {{#unless official}}
+                          <div class="lt-vote">
+                            {{#vote 'up' class='lt-btn lt-btn--default lt-vote__control lt-vote__control--up' role='button' selected_class='lt-vote__control--voted'}}
+                              <span class="fas fa-angle-up" aria-hidden="true"></span>
+                            {{/vote}}
+                            {{vote 'sum' class='lt-vote__sum'}}
+                            {{#vote 'down' class='lt-btn lt-btn--default lt-vote__control lt-vote__control--down' role='button' selected_class='lt-vote__control--voted'}}
+                              <span class="fas fa-angle-down" aria-hidden="true"></span>
+                            {{/vote}}
+                          </div>
+                        {{/unless}}
+                        <div class="lt-comment__actions">
+                          {{#actions}}
+                            <span class="fas fa-cog" aria-hidden="true"></span>
+                          {{/actions}}
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                {{/each}}
+              </ul>
+          
+              {{pagination}}
+            {{/if}}
+          
+            <p class="lt-comments__callout lt-d-print-none">{{comment_callout}}</p>
+          
+            {{#form 'comment' class='lt-comment-form lt-d-print-none'}}
+              <div class="lt-comment-form__avatar">
+                <div class="lt-avatar avatar--comment">
+                  {{user_avatar class='lt-user-avatar lt-user-avatar--default'}}
+                </div>
+              </div>
+              <div class="lt-comment-form__body">
+                {{wysiwyg 'body'}}
+              </div>
+              <div class="lt-comment-form__controls">
+                {{input type='submit' class='lt-btn lt-btn--primary'}}
+              </div>
+            {{/form}}
+          </section>
+        {{/if}}
+      </div>
+      <div class="lt-article-container__column lt-article-container__toc lt-d-print-none">
+        <div data-toc='{"mobileBreakpoint": 991}'></div>
+      </div>
+      
+      <div class="lt-article-container__column lt-article-container__sidebar lt-d-print-none">
+        {{#if settings.show_articles_in_section}}
+          <section class="lt-section-articles">
+            <h3 class="lt-section-articles__title">{{t 'articles_in_section'}}</h3>
+            <ul class="lt-section-articles__list">
+              {{#each section.articles}}
+                <li class="lt-section-articles__item">
+                  <a href="{{url}}"
+                    class="lt-section-articles__link {{#is id ../article.id}}is-active{{/is}}">{{title}}</a>
+                </li>
+              {{/each}}
+            </ul>
+            {{#if section.more_articles}}
+              <a href="{{section.url}}"
+                class="lt-btn lt-btn--default">{{t 'see_more'}}</a>
+            {{/if}}
+          </section>
+        {{/if}}
+        {{#if settings.show_article_boxes}}
+          <div class="lt-article-boxes lt-mb-4">
+            {{#if settings.article_box_1_toggle}}
+              <{{#if settings.article_box_1_link_toggle}}a{{else}}div{{/if}} class="lt-article-box lt-d-flex" href="{{#if settings.toggle_translations}}
+                    {{dc settings.article_box_1_url}}
+                  {{else}}
+                    {{settings.article_box_1_url}}
+                  {{/if}}">
+                <img class="lt-article-box__icon" data-svg src="{{settings.article_box_1_icon}}"
+                    alt="">
+                <div class="lt-article-box__content lt-mt-3">
+                  <div class="h5 lt-article-box__title lt-mb-1">
+                    {{#if settings.toggle_translations}}
+                      {{dc settings.article_box_1_title}}
+                    {{else}}
+                      {{settings.article_box_1_title}}
+                    {{/if}}
+                  </div>
+                  <div class="lt-article-box__text">
+                    {{#if settings.toggle_translations}}
+                      {{dc settings.article_box_1_text}}
+                    {{else}}
+                      {{settings.article_box_1_text}}
+                    {{/if}}
+                  </div>
+                </div>
+              </{{#if settings.article_box_1_link_toggle}}a{{else}}div{{/if}}>
+            {{/if}}
+            {{#if settings.article_box_2_toggle}}
+              <{{#if settings.article_box_2_link_toggle}}a{{else}}div{{/if}} class="lt-article-box lt-d-flex" 
+                href="{{#if settings.toggle_translations}}
+                  {{dc settings.article_box_2_url}}
+                {{else}}
+                  {{settings.article_box_2_url}}
+                {{/if}}">
+                <img class="lt-article-box__icon" data-svg src="{{settings.article_box_2_icon}}"
+                    alt="">
+                <div class="lt-article-box__content lt-mt-3">
+                  <div class="h5 lt-article-box__title lt-mb-1">
+                    {{#if settings.toggle_translations}}
+                      {{dc settings.article_box_2_title}}
+                    {{else}}
+                      {{settings.article_box_2_title}}
+                    {{/if}}
+                  </div>
+                  <div class="lt-article-box__text">
+                    {{#if settings.toggle_translations}}
+                      {{dc settings.article_box_2_text}}
+                    {{else}}
+                      {{settings.article_box_2_text}}
+                    {{/if}}
+                  </div>
+                </div>
+              </{{#if settings.article_box_2_link_toggle}}a{{else}}div{{/if}}>
+            {{/if}}
+            {{#if settings.article_box_3_toggle}}
+              <{{#if settings.article_box_3_link_toggle}}a{{else}}div{{/if}} class="lt-article-box lt-d-flex" href="{{#if settings.toggle_translations}}
+                  {{dc settings.article_box_3_url}}
+                {{else}}
+                  {{settings.article_box_3_url}}
+                {{/if}}">
+                <img class="lt-article-box__icon" data-svg src="{{settings.article_box_3_icon}}"
+                    alt="">
+                <div class="lt-article-box__content lt-mt-3">
+                  <div class="h5 lt-article-box__title lt-mb-1">
+                    {{#if settings.toggle_translations}}
+                      {{dc settings.article_box_3_title}}
+                    {{else}}
+                      {{settings.article_box_3_title}}
+                    {{/if}}
+                  </div>
+                  <div class="lt-article-box__text">
+                    {{#if settings.toggle_translations}}
+                      {{dc settings.article_box_3_text}}
+                    {{else}}
+                      {{settings.article_box_3_text}}
+                    {{/if}}
+                  </div>
+                </div>
+              </{{#if settings.article_box_3_link_toggle}}a{{else}}div{{/if}}>
+          {{/if}}
+          {{#if settings.article_box_4_toggle}}
+            <{{#if settings.article_box_4_link_toggle}}a{{else}}div{{/if}}
+                    class="lt-article-box lt-d-flex" href="{{#if settings.toggle_translations}}
+                {{dc settings.article_box_4_url}}
+              {{else}}
+                {{settings.article_box_4_url}}
+              {{/if}}">
+              <img class="lt-article-box__icon" data-svg
+                    src="{{settings.article_box_4_icon}}" alt="">
+              <div class="lt-article-box__content lt-mt-3">
+                <div class="h5 lt-article-box__title lt-mb-1">
+                  {{#if settings.toggle_translations}}
+                    {{dc settings.article_box_4_title}}
+                  {{else}}
+                    {{settings.article_box_4_title}}
+                  {{/if}}
+                </div>
+                <div class="lt-article-box__text">
+                  {{#if settings.toggle_translations}}
+                    {{dc settings.article_box_4_text}}
+                  {{else}}
+                    {{settings.article_box_4_text}}
+                  {{/if}}
+                </div>
+              </div>
+            </{{#if settings.article_box_4_link_toggle}}a{{else}}div{{/if}}>
+          {{/if}}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>

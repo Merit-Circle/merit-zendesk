@@ -1,0 +1,78 @@
+<div class="lt-container my-activities-page lt-pb-8">
+  <div class="lt-container-inner">
+    <div class="lt-row lt-align-items-center lt-mb-5 lt-d-print-none">
+      <div class="lt-col-md-8 lt-mb-4">
+        {{breadcrumbs}}
+      </div>
+      <div class="lt-col-md-4 lt-mb-4">
+        <div class="lt-search-box lt-search-box--small ">
+          {{search instant=true submit=false placeholder=settings.search_placeholder}}
+        </div>
+      </div>
+    </div>
+    <h1 class="lt-header lt-fs-3 lt-fs-md-1">{{t 'my_activities' }}</h1>
+    <nav class="lt-my-activities-menu lt-my-activities-menu--main lt-mb-4 lt-pb-3">
+      <ul class="lt-list-unstyled lt-d-flex lt-flex-column lt-flex-sm-row lt-mt-0 lt-mb-0">
+        {{#if help_center.request_management_enabled}}
+          <li class="lt-my-activities-menu-item">
+            {{link 'requests' class='lt-my-activities-menu-item__link'}}
+          </li>
+        {{/if}}
+        <li class="lt-my-activities-menu-item is-active">
+          {{t 'contributions'}}
+        </li>
+        <li class="lt-my-activities-menu-item">
+          {{link 'subscriptions' class='lt-my-activities-menu-item__link'}}
+        </li>
+      </ul>
+    </nav>
+
+    <nav class="lt-my-activities-menu lt-my-activities-menu--sub">
+      <ul class="lt-list-unstyled lt-d-flex lt-flex-column lt-flex-sm-row">
+        {{#each filters}}
+          <li class="lt-my-activities-menu-item {{#if selected}} is-active {{/if}}">
+            {{#if selected}}
+              {{name}}
+            {{else}}
+              <a href="{{url}}">{{name}}</a>
+            {{/if}}
+          </li>
+        {{/each}}
+      </ul>
+    </nav>
+
+    {{#if contributions}}
+      <table class="lt-my-activities-items" id="main-content">
+        <thead class="lt-my-activities-items__head">
+          <tr class="lt-my-activities-items__row">
+            <td class="lt-my-activities-items__col">{{t 'title'}}</td>
+            <td class="lt-my-activities-items__col">{{t 'vote_sum'}}</td>
+            <td class="lt-my-activities-items__col">{{t 'last_activity'}}</td>
+            <td class="lt-my-activities-items__col">{{t 'created'}}</td>
+          </tr>
+        </thead>
+        <tbody class="lt-my-activities-items__body">
+          {{#each contributions}}
+            <tr class="lt-my-activities-items__row lt-my-activities-item">
+              <td class="lt-my-activities-items__col">
+                <a class="lt-my-activities-item__title" href="{{url}}">
+                  {{excerpt title characters=60}}
+                </a>
+              </td>
+              <td class="lt-my-activities-items__col lt-my-activities-item__meta">
+                <span 
+                  class="fa fa-thumbs-up lt-my-activities-item__icon"
+                  aria-hidden="true"></span> {{vote_sum}}
+              </td>
+              <td class="lt-my-activities-items__col lt-my-activities-item__meta">{{date last_activity_at}}</td>
+              <td class="lt-my-activities-items__col lt-my-activities-item__meta">{{date created_at}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      {{pagination}}
+    {{else}}
+      <p>{{t 'no_contributions'}}</p>
+    {{/if}}
+  </div>
+</div>

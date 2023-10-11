@@ -1,0 +1,38 @@
+<div class="lt-container lt-new-request-page lt-pb-8">
+  <div class="lt-container-inner">
+    <div class="lt-row lt-align-items-center lt-mb-5 lt-d-print-none">
+      <div class="lt-col-md-8 lt-mb-4">
+        {{breadcrumbs}}
+      </div>
+      
+    </div>
+    <div class="lt-row">
+      <div class="lt-col-md-8 lt-offset-md-2" id="main-content">
+        <h1 class="lt-new-request-title lt-fs-3 lt-fs-md-1">{{t 'submit_a_request'}}</h1>
+
+        {{#if settings.show_new_request_tip}}
+        <div class="lt-new-request-tip lt-p-4 lt-ps-8 lt-mb-4">
+          <i class="fas fa-magic lt-new-request-tip__icon" aria-hidden="true"></i>
+          {{#if settings.toggle_translations}}
+            {{dc settings.new_request_tip_text}}
+          {{else}}
+            {{settings.new_request_tip_text}}
+          {{/if}}
+        </div>
+        {{/if}}
+        
+        {{#if parent}}
+        <p>
+          <span class="follow-up-hint">
+            {{follow_up}}
+          </span>
+        </p>  
+        {{/if}}
+
+        <div class="lt-new-request-form">
+          {{request_form}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
